@@ -2,37 +2,42 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <nav className="flex justify-between px-10 py-6">
-        <h1 className="text-green-400 font-bold text-xl">ecoFinds</h1>
-        <div className="flex gap-6">
+    <div>
+      {/* Navbar */}
+      <nav className="navbar">
+        <span className="logo">ecoFinds</span>
+        <div className="nav-links">
           <Link to="/login">Sign In</Link>
-          <Link to="/signup" className="bg-green-500 px-5 py-2 rounded-full text-black">
-            Sign Up
-          </Link>
+          <Link to="/signup" className="eco-btn">Sign Up</Link>
         </div>
       </nav>
 
-      <section className="grid md:grid-cols-2 gap-16 px-10 pt-24">
+      {/* Hero */}
+      <section className="hero">
         <div>
-          <h2 className="text-6xl font-extrabold leading-tight">
-            Discover.<br />Bid.<br />Reuse.
-          </h2>
-          <p className="text-white/60 mt-6 max-w-md">
+          <h1>
+            Discover.<br />
+            Bid.<br />
+            Reuse.
+          </h1>
+
+          <p>
             Sustainable auctions for quality second-hand items.
           </p>
+
+          <div className="hero-actions">
+            <Link to="/signup" className="eco-btn">Get Started</Link>
+            <Link to="/login" className="eco-outline">Sign In</Link>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        {/* Pinterest-style cards */}
+        <div className="masonry">
           {["Camera", "Bag", "Table", "Lamp"].map((item, i) => (
-            <div
-              key={i}
-              className="bg-white/5 p-6 rounded-3xl border border-white/10"
-              style={{ marginTop: i % 2 ? "80px" : "0px" }}
-            >
-              <div className="h-40 bg-white/10 rounded-xl mb-4" />
+            <div className="card" key={i}>
+              <div className="masonry-image"></div>
               <h3>{item}</h3>
-              <p className="text-green-400 text-sm">Live Auction</p>
+              <p className="auction-price">Live Auction</p>
             </div>
           ))}
         </div>
