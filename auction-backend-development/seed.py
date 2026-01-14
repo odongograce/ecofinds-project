@@ -1,5 +1,5 @@
 from app import app
-from models import db, User, AuctionItem, Bid, AuctionList
+from models import db, Buyers, Sellers, AuctionItem, Bid, AuctionList
 from datetime import date
 
 with app.app_context():
@@ -8,11 +8,12 @@ with app.app_context():
     Bid.query.delete()
     AuctionList.query.delete()
     AuctionItem.query.delete()
-    User.query.delete()
+    Buyers.query.delete()
+    Sellers.query,delete()
 
-    print("Creating Users...")
-    george = User(name="George", email="george.m@gmail.com")
-    bob = User(name="Bob", email="bob10101@gmail.com")
+    print("Creating Buyers...")
+    george = Buyer(name="George", email="george.m@gmail.com")
+    bob = Buyer(name="Bob", email="bob10101@gmail.com")
     carol = User(name="Carol", email="carol.okoth@gmail.com")
     sarah = User(name="Sarah", email="sarah.wavy@gmail.com")
     esther = User(name="Esther", email="esther.bobo@gmail.com")
