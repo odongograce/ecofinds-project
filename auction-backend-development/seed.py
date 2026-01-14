@@ -3,3 +3,5 @@ from models import db, User, AuctionItem, Bid, AuctionList
 from datetime import date
 
 with app.app_context():
+    
+    print("Deleting data...")
