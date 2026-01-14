@@ -11,3 +11,7 @@ with app.app_context():
     User.query.delete()
 
     print("Creating Users...")
+    george = User(name="George", email="george.m@gmail.com")
+    bob = User(name="Bob", email="bob10101@gmail.com")
+    carol = User(name="Carol", email="carol.okoth@gmail.com")
+    sarah = User(name="Sarah", email="sarah.wavy@gmail.com")
