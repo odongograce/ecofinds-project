@@ -20,3 +20,5 @@ with app.app_context():
     ethan = User(name="Ethan", email="ethanruto@gmail.com")
     kevin = User(name="Kevin", email="omondikevo@yahoo.com.au")
     users = [george, bob, carol, sarah, esther, mark, ethan, kevin]
+
+    print("Creating auction items...")
