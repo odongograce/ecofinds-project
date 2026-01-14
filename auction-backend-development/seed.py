@@ -5,3 +5,4 @@ from datetime import date
 with app.app_context():
     
     print("Deleting data...")
+    Bid.query.delete()
