@@ -6,11 +6,13 @@ export default function Landing() {
     <>
       <Navbar />
 
-      {/* HERO */}
       <section className="hero">
-        <div className="hero-text">
-          <h1>EcoFinds Auction Platform</h1>
-          <p>Bid. Sell. Discover sustainable products.</p>
+        <div>
+          <h1>Discover. Bid. Reuse.</h1>
+          <p>
+            EcoFinds is a sustainable auction platform connecting buyers and
+            sellers for quality second-hand items.
+          </p>
         </div>
 
         <img
@@ -20,20 +22,18 @@ export default function Landing() {
         />
       </section>
 
-      {/* ABOUT */}
       <section id="about" className="section">
-        <h2>About Us</h2>
+        <h2>About EcoFinds</h2>
         <p>
-          EcoFinds connects sellers and buyers through a trusted auction system
-          focused on sustainability and transparency.
+          We promote sustainability by giving products a second life through
+          trusted auctions.
         </p>
       </section>
 
-      {/* AUCTIONS PREVIEW */}
       <section id="auctions" className="section">
         <h2>Live Auctions</h2>
 
-        <div className="auction-preview">
+        <div className="auction-grid">
           <div className="auction-card">
             <img src="https://images.unsplash.com/photo-1606813902917-8a07f3c40b6f" />
             <h4>Vintage Camera</h4>
@@ -48,7 +48,6 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* CONTACT */}
       <section id="contact" className="section">
         <h2>Contact Us</h2>
         <p>Email: support@ecofinds.com</p>
