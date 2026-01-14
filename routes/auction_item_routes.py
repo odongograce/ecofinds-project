@@ -1,37 +1,25 @@
-from flask import Blueprint, request, jsonify
+
+from flask import request, jsonify
 from models import db, AuctionItem
 
-auction_item_bp = Blueprint("auction_items", __name__, url_prefix="/auction-items")
+def register_auction_item_routes(app):
 
+    @app.route('/auction_items', methods=['GET'])
+    def get_auction_items():
+        items = AuctionItem.query.all()
+        result = [{"id": i.id, "title": i.title, "description": i.description,
+                   "category": i.category, "condition": i.condition,
+                   "starting_price": i.starting_price} for i in items]
+        return jsonify(result)
 
-@auction_item_bp.route("", methods=["POST"])
-def create_auction_item():
-    data = request.get_json()
-    item = AuctionItem(
-        title=data["title"],
-        description=data["description"],
-        category=data["category"],
-        condition=data["condition"],
-        starting_price=data["starting_price"],
-        start_date=data["start_date"],
-        end_date=data["end_date"],
-        status=data.get("status", "open")
-    )
-    db.session.add(item)
-    db.session.commit()
-    return jsonify({"id": item.id, "title": item.title}), 201
-
-@auction_item_bp.route("", methods=["GET"])
-def get_auction_items():
-    items = AuctionItem.query.all()
-    return jsonify([{
-        "id": i.id,
-        "title": i.title,
-        "description": i.description,
-        "category": i.category,
-        "condition": i.condition,
-        "starting_price": i.starting_price,
-        "start_date": i.start_date,
-        "end_date": i.end_date,
-        "status": i.status
-    } for i in items]), 200
+    @app.route('/auction_items', methods=['POST'])
+    def create_auction_item():
+        data = request.get_json()
+        new_item = AuctionItem(
+            title=data['title'], description=data['description'],
+            category=data['category'], condition=data['condition'],
+            starting_price=data['starting_price']
+        )
+        db.session.add(new_item)
+        db.session.commit()
+        return jsonify({"message": "Auction item created"}), 201
