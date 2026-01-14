@@ -1,47 +1,70 @@
 import { Link } from "react-router-dom";
+import "../App.css";
 
 export default function Landing() {
   return (
-    <div>
-      {/* Navbar */}
+    <div className="landing">
+      {/* NAVBAR */}
       <nav className="navbar">
-        <span className="logo">ecoFinds</span>
-        <div className="nav-links">
-          <Link to="/login">Sign In</Link>
-          <Link to="/signup" className="eco-btn">Sign Up</Link>
+        <div className="logo">ecoFinds</div>
+        <div className="nav-actions">
+          <Link className="btn-outline" to="/login">Sign In</Link>
+          <Link className="btn-primary" to="/signup">Sign Up</Link>
         </div>
       </nav>
 
-      {/* Hero */}
-      <section className="hero">
-        <div>
+      {/* HERO */}
+      <section className="hero container">
+        {/* TEXT */}
+        <div className="hero-text">
           <h1>
             Discover.<br />
             Bid.<br />
             Reuse.
           </h1>
-
           <p>
             Sustainable auctions for quality second-hand items.
+            Let value rise naturally through competitive bidding.
           </p>
 
           <div className="hero-actions">
-            <Link to="/signup" className="eco-btn">Get Started</Link>
-            <Link to="/login" className="eco-outline">Sign In</Link>
+            <Link to="/signup" className="btn-primary">Get Started</Link>
+            <Link to="/login" className="btn-outline">Sign In</Link>
           </div>
         </div>
 
-        {/* Pinterest-style cards */}
-        <div className="masonry">
-          {["Camera", "Bag", "Table", "Lamp"].map((item, i) => (
-            <div className="card" key={i}>
-              <div className="masonry-image"></div>
-              <h3>{item}</h3>
-              <p className="auction-price">Live Auction</p>
+        {/* IMAGE GRID */}
+        <div className="hero-grid">
+          {items.map((item, i) => (
+            <div key={i} className="hero-card" style={{ marginTop: i % 2 ? "60px" : "0" }}>
+              <img src={item.img} alt={item.title} />
+              <h4>{item.title}</h4>
+              <span>Live Auction</span>
             </div>
           ))}
         </div>
+
+        <div className="glow" />
       </section>
     </div>
   );
 }
+
+const items = [
+  {
+    title: "Vintage Camera",
+    img: "https://images.unsplash.com/photo-1519183071298-a2962eadcdb2"
+  },
+  {
+    title: "Leather Bag",
+    img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
+  },
+  {
+    title: "Wooden Table",
+    img: "https://images.unsplash.com/photo-1582582621959-48d27397dc69"
+  },
+  {
+    title: "Retro Lamp",
+    img: "https://images.unsplash.com/photo-1501045661006-fcebe0257c3f"
+  }
+];
