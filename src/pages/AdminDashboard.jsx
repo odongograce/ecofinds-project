@@ -1,16 +1,13 @@
-import { auctions } from "../data/auctions";
-
 export default function AdminDashboard() {
   return (
-    <div className="section">
-      <h2>Pending Approvals</h2>
+    <div className="page">
+      <h2>Admin Approval</h2>
 
-      {auctions.map((a) => (
-        <div className="auction-card" key={a.id}>
-          <h4>{a.title}</h4>
-          <button>Approve</button>
-        </div>
-      ))}
+      <div className="card">
+        <h4>Vintage Camera</h4>
+        <button>Approve</button>
+        <button className="danger">Reject</button>
+      </div>
     </div>
   );
 }

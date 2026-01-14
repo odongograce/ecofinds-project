@@ -1,28 +1,40 @@
-.navbar {
-display: flex; justify-content: space-between;
-padding: 1.5rem 3rem; position: sticky; top: 0;
-background: #0f1f17;
+.auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.auth-box {
+  background: rgba(255,255,255,0.06);
+  padding: 2.5rem;
+  border-radius: 24px;
+  width: 380px;
+  backdrop-filter: blur(10px);
+}
 
-.logo { font-size: 1.5rem; font-weight: 700; color: #22c55e; }
-.nav-links { display: flex; gap: 1.2rem; align-items: center; }
-.btn-primary { background:#22c55e; color:black; padding:0.5rem 1.3rem; border-radius:999px; }
+.auth-box input,
+.auth-box select {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  border: none;
+}
 
+button {
+  padding: 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #3a86ff;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
 
-.hero { min-height: 90vh; display:flex; align-items:center; padding:3rem; }
-.hero-text h1 { font-size:3.5rem; }
-
-.section { padding:4rem 3rem; }
-.auction-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:2rem; }
-.auction-card { background:rgba(255,255,255,0.05); padding:1rem; border-radius:20px; }
-.auction-card img { width:100%; height:160px; object-fit:cover; border-radius:16px; }
-
-
-.auth { min-height:100vh; display:flex; align-items:center; justify-content:center; }
-.auth-box { width:360px; padding:2.5rem; background:rgba(255,255,255,0.05); border-radius:24px; }
-.auth-box input { width:100%; margin-bottom:1rem; padding:0.8rem; border-radius:12px; }
-.auth-box button { width:100%; padding:0.8rem; background:#22c55e; border-radius:999px; }
-
-
-.footer { padding:2rem; text-align:center; opacity:0.6; }
+.auction-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 16px;
+}

@@ -1,23 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [role, setRole] = useState("buyer");
   const navigate = useNavigate();
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-    role: "buyer"
-  });
-
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const { login } = useAuth();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    login(email, role);
 
-    if (form.role === "buyer") navigate("/buyer");
-    if (form.role === "seller") navigate("/seller");
-    if (form.role === "admin") navigate("/admin");
+    if (role === "seller") navigate("/seller");
+    else if (role === "admin") navigate("/admin");
+    else navigate("/auctions");
   };
 
   return (
@@ -26,28 +23,20 @@ export default function Login() {
         <h2>Login</h2>
 
         <input
-          name="email"
-          type="email"
           placeholder="Email"
           required
-          onChange={handleChange}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          onChange={handleChange}
-        />
+        <input placeholder="Password" type="password" required />
 
-        <select name="role" onChange={handleChange}>
+        <select onChange={(e) => setRole(e.target.value)}>
           <option value="buyer">Buyer</option>
           <option value="seller">Seller</option>
           <option value="admin">Admin</option>
         </select>
 
-        <button type="submit">Login</button>
+        <button>Login</button>
       </form>
     </div>
   );
