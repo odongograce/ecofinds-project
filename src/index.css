@@ -1,31 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", system-ui, sans-serif;
-  background: linear-gradient(180deg, #0b0f0c, #0f172a);
-  color: #e5e7eb;
-  line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Inter, sans-serif; background: #0f1f17; color: white; }
+a { color: inherit; text-decoration: none; }
