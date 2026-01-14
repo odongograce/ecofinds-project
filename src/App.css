@@ -1,42 +1,148 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ============================
+   NAVBAR
+============================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.8rem 4rem;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.3rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* ============================
+   LANDING PAGE
+============================ */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  padding: 6rem 4rem;
 }
 
-.card {
-  padding: 2em;
+.hero h1 {
+  font-size: 4.5rem;
+  font-weight: 900;
+  line-height: 1.1;
 }
 
-.read-the-docs {
-  color: #888;
-} */
+.hero p {
+  margin-top: 1.5rem;
+  max-width: 420px;
+  color: var(--muted-dark);
+}
+
+.hero-actions {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: 1.2rem;
+}
+
+/* ============================
+   PINTEREST-STYLE GRID
+============================ */
+.masonry {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.masonry .card:nth-child(odd) {
+  margin-top: 5rem;
+}
+
+.masonry-image {
+  height: 160px;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.02)
+  );
+  margin-bottom: 1rem;
+}
+
+/* ============================
+   HOME / AUCTIONS
+============================ */
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.page-subtitle {
+  color: var(--muted-dark);
+  margin-bottom: 2rem;
+}
+
+.auction-price {
+  color: var(--accent);
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+/* ============================
+   CART DRAWER
+============================ */
+.cart-drawer {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 320px;
+  background: var(--bg-dark);
+  border-left: 1px solid var(--border-dark);
+  padding: 2rem;
+  z-index: 999;
+}
+
+/* ============================
+   AUTH PAGES
+============================ */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-card {
+  width: 380px;
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  background: var(--card-dark);
+  border: 1px solid var(--border-dark);
+}
+
+.auth-card h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+/* ============================
+   PRODUCT DETAILS
+============================ */
+.product-details {
+  max-width: 800px;
+}
+
+.product-details h2 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.product-meta {
+  margin-top: 1rem;
+  color: var(--muted-dark);
+}
