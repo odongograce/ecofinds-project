@@ -1,35 +1,30 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
-export const AuctionContext = createContext();
+const AuthContext = createContext();
 
-export function AuctionProvider({ children }) {
-  const [auctions, setAuctions] = useState([]);
+export const AuthProvider = ({ children }) => {
+  const [user, setUser] = useState(null);
 
-  const addAuction = (item) => {
-    setAuctions([
-      ...auctions,
-      {
-        ...item,
-        id: Date.now(),
-        approved: true, // admin logic later
-        highestBid: Number(item.startingPrice)
-      }
-    ]);
+  useEffect(() => {
+    const stored = localStorage.getItem("user");
+    if (stored) setUser(JSON.parse(stored));
+  }, []);
+
+  const login = (data) => {
+    localStorage.setItem("user", JSON.stringify(data));
+    setUser(data);
   };
 
-  const placeBid = (id, amount) => {
-    setAuctions(
-      auctions.map((a) =>
-        a.id === id && amount > a.highestBid
-          ? { ...a, highestBid: Number(amount) }
-          : a
-      )
-    );
+  const logout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
   };
 
   return (
-    <AuctionContext.Provider value={{ auctions, addAuction, placeBid }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
-    </AuctionContext.Provider>
+    </AuthContext.Provider>
   );
-}
+};
+
+export const useAuth = () => useContext(AuthContext);

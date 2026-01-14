@@ -1,26 +1,20 @@
 export const auctions = [
   {
     id: 1,
-    name: "Vintage Camera",
-    category: "Electronics",
-    startPrice: 120,
-    description: "Classic film camera in great condition.",
-    reviews: 4.5
+    title: "Vintage Camera",
+    price: 50,
+    highestBid: 50,
+    approved: true,
+    image:
+      "https://images.unsplash.com/photo-1519183071298-a2962eadcdb2",
   },
   {
     id: 2,
-    name: "Designer Leather Bag",
-    category: "Fashion",
-    startPrice: 250,
-    description: "Premium leather handbag.",
-    reviews: 4.8
+    title: "Classic Watch",
+    price: 120,
+    highestBid: 120,
+    approved: true,
+    image:
+      "https://images.unsplash.com/photo-1518544882875-e8d09c41e7d9",
   },
-  {
-    id: 3,
-    name: "Wooden Coffee Table",
-    category: "Furniture",
-    startPrice: 180,
-    description: "Solid wood handcrafted table.",
-    reviews: 4.6
-  }
 ];

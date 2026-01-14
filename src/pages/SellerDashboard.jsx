@@ -1,53 +1,22 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const navigate = useNavigate();
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-    role: "buyer"
-  });
+export default function SellerDashboard() {
+  const [item, setItem] = useState("");
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
-  const handleSubmit = (e) => {
+  const submitItem = (e) => {
     e.preventDefault();
-
-    if (form.role === "buyer") navigate("/buyer");
-    if (form.role === "seller") navigate("/seller");
-    if (form.role === "admin") navigate("/admin");
+    alert("Item submitted for admin approval");
   };
 
   return (
-    <div className="auth">
-      <form className="auth-box" onSubmit={handleSubmit}>
-        <h2>Login</h2>
+    <div className="section">
+      <h2>Upload Auction Item</h2>
 
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          required
-          onChange={handleChange}
-        />
-
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          required
-          onChange={handleChange}
-        />
-
-        <select name="role" onChange={handleChange}>
-          <option value="buyer">Buyer</option>
-          <option value="seller">Seller</option>
-          <option value="admin">Admin</option>
-        </select>
-
-        <button type="submit">Login</button>
+      <form className="auth-box" onSubmit={submitItem}>
+        <input placeholder="Item name" required />
+        <input placeholder="Image URL" required />
+        <input type="number" placeholder="Starting Price" required />
+        <button>Add Item</button>
       </form>
     </div>
   );
