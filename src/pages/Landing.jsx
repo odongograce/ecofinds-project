@@ -1,70 +1,81 @@
-import { Link } from "react-router-dom";
-import "../App.css";
+import Navbar from "../components/Navbar";
+
+const auctions = [
+  {
+    title: "Vintage Camera",
+    img: "https://images.unsplash.com/photo-1519183071298-a2962be96c31?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Leather Bag",
+    img: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Wooden Table",
+    img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
+  },
+  {
+    title: "Classic Lamp",
+    img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80"
+  }
+];
 
 export default function Landing() {
   return (
-    <div className="landing">
-      {/* NAVBAR */}
-      <nav className="navbar">
-        <div className="logo">ecoFinds</div>
-        <div className="nav-actions">
-          <Link className="btn-outline" to="/login">Sign In</Link>
-          <Link className="btn-primary" to="/signup">Sign Up</Link>
-        </div>
-      </nav>
+    <>
+      <Navbar />
 
       {/* HERO */}
-      <section className="hero container">
-        {/* TEXT */}
+      <section className="hero">
         <div className="hero-text">
           <h1>
-            Discover.<br />
-            Bid.<br />
-            Reuse.
+            Discover.<br />Bid.<br />Reuse.
           </h1>
-          <p>
-            Sustainable auctions for quality second-hand items.
-            Let value rise naturally through competitive bidding.
-          </p>
-
-          <div className="hero-actions">
-            <Link to="/signup" className="btn-primary">Get Started</Link>
-            <Link to="/login" className="btn-outline">Sign In</Link>
-          </div>
+          <p>Sustainable auctions for quality second-hand items.</p>
         </div>
 
-        {/* IMAGE GRID */}
-        <div className="hero-grid">
-          {items.map((item, i) => (
-            <div key={i} className="hero-card" style={{ marginTop: i % 2 ? "60px" : "0" }}>
+        <img
+          className="hero-image"
+          src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80"
+          alt="Live Auction"
+        />
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="section">
+        <h2>About ecoFinds</h2>
+        <p>
+          ecoFinds is a sustainable auction platform where second-hand items
+          gain new life through competitive bidding. We connect sellers and
+          buyers who value reuse and environmental responsibility.
+        </p>
+      </section>
+
+      {/* AUCTIONS */}
+      <section id="auctions" className="section">
+        <h2>Live Auctions</h2>
+
+        <div className="auction-grid">
+          {auctions.map((item, index) => (
+            <div className="auction-card" key={index}>
               <img src={item.img} alt={item.title} />
               <h4>{item.title}</h4>
               <span>Live Auction</span>
             </div>
           ))}
         </div>
-
-        <div className="glow" />
       </section>
-    </div>
+
+      {/* CONTACT */}
+      <section id="contact" className="section">
+        <h2>Contact Us</h2>
+        <p>Email: support@ecofinds.com</p>
+        <p>Phone: +254 700 000 000</p>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="footer">
+        © {new Date().getFullYear()} ecoFinds. All rights reserved.
+      </footer>
+    </>
   );
 }
-
-const items = [
-  {
-    title: "Vintage Camera",
-    img: "https://images.unsplash.com/photo-1519183071298-a2962eadcdb2"
-  },
-  {
-    title: "Leather Bag",
-    img: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"
-  },
-  {
-    title: "Wooden Table",
-    img: "https://images.unsplash.com/photo-1582582621959-48d27397dc69"
-  },
-  {
-    title: "Retro Lamp",
-    img: "https://images.unsplash.com/photo-1501045661006-fcebe0257c3f"
-  }
-];

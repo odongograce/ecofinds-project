@@ -1,30 +1,19 @@
-// import { Link } from "react-router-dom";
-// import { useCart } from "../context/CartContext";
-// import ThemeToggle from "./ThemeToggle";
+import { Link } from "react-router-dom";
 
-// export default function Navbar() {
-//   const { cart } = useCart();
-
-//   return (
-//     <nav className="flex justify-between px-10 py-6 bg-black text-white">
-//       <Link to="/home" className="text-green-400 font-bold text-xl">ecoFinds</Link>
-//       <div className="flex items-center gap-6">
-//         <Link to="/home">Auctions</Link>
-//         <Link to="/profile">👤</Link>
-//         <ThemeToggle />
-//         <span>🛒 {cart.length}</span>
-//       </div>
-//     </nav>
-//   );
-// }
 export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="logo">ecoFinds</div>
 
+      <div className="nav-links">
+        <a href="#about">About</a>
+        <a href="#auctions">Auctions</a>
+        <a href="#contact">Contact</a>
+      </div>
+
       <div className="nav-actions">
-        <button className="btn-outline">Sign In</button>
-        <button className="btn-primary">Sign Up</button>
+        <Link to="/login" className="btn-outline">Sign In</Link>
+        <Link to="/signup" className="btn-primary">Sign Up</Link>
       </div>
     </nav>
   );

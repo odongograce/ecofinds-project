@@ -1,20 +1,65 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const navigate = useNavigate();
 
-  return (
-    <div className="min-h-screen bg-black flex items-center justify-center text-white">
-      <div className="bg-white/5 p-10 rounded-3xl border border-white/10 w-96">
-        <h2 className="text-2xl font-bold mb-6">Create Account</h2>
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "buyer"
+  });
 
-        <button
-          onClick={() => navigate("/home")}
-          className="bg-green-500 w-full py-3 rounded-xl text-black font-semibold"
-        >
-          Mock Signup
-        </button>
-      </div>
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // FRONTEND ONLY (mock signup)
+    console.log("User registered:", form);
+
+    alert("Signup successful! Please login.");
+    navigate("/login");
+  };
+
+  return (
+    <div className="auth">
+      <form className="auth-box" onSubmit={handleSubmit}>
+        <h2>Create Account</h2>
+
+        <input
+          name="name"
+          placeholder="username"
+          required
+          onChange={handleChange}
+        />
+
+        <input
+          name="email"
+          type="email"
+          placeholder="Email"
+          required
+          onChange={handleChange}
+        />
+
+        <input
+          name="password"
+          type="password"
+          placeholder="Password"
+          required
+          onChange={handleChange}
+        />
+
+        <select name="role" onChange={handleChange}>
+          <option value="buyer">Buyer</option>
+          <option value="seller">Seller</option>
+        </select>
+
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
   );
 }
