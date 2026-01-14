@@ -1,23 +1,5 @@
 import Navbar from "../components/Navbar";
-
-const auctions = [
-  {
-    title: "Vintage Camera",
-    img: "https://images.unsplash.com/photo-1519183071298-a2962be96c31?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Leather Bag",
-    img: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Wooden Table",
-    img: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80"
-  },
-  {
-    title: "Classic Lamp",
-    img: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=800&q=80"
-  }
-];
+import Footer from "../components/Footer";
 
 export default function Landing() {
   return (
@@ -27,41 +9,42 @@ export default function Landing() {
       {/* HERO */}
       <section className="hero">
         <div className="hero-text">
-          <h1>
-            Discover.<br />Bid.<br />Reuse.
-          </h1>
-          <p>Sustainable auctions for quality second-hand items.</p>
+          <h1>EcoFinds Auction Platform</h1>
+          <p>Bid. Sell. Discover sustainable products.</p>
         </div>
 
         <img
-          className="hero-image"
-          src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80"
-          alt="Live Auction"
+          className="hero-img"
+          src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"
+          alt="Auction"
         />
       </section>
 
       {/* ABOUT */}
       <section id="about" className="section">
-        <h2>About ecoFinds</h2>
+        <h2>About Us</h2>
         <p>
-          ecoFinds is a sustainable auction platform where second-hand items
-          gain new life through competitive bidding. We connect sellers and
-          buyers who value reuse and environmental responsibility.
+          EcoFinds connects sellers and buyers through a trusted auction system
+          focused on sustainability and transparency.
         </p>
       </section>
 
-      {/* AUCTIONS */}
+      {/* AUCTIONS PREVIEW */}
       <section id="auctions" className="section">
         <h2>Live Auctions</h2>
 
-        <div className="auction-grid">
-          {auctions.map((item, index) => (
-            <div className="auction-card" key={index}>
-              <img src={item.img} alt={item.title} />
-              <h4>{item.title}</h4>
-              <span>Live Auction</span>
-            </div>
-          ))}
+        <div className="auction-preview">
+          <div className="auction-card">
+            <img src="https://images.unsplash.com/photo-1606813902917-8a07f3c40b6f" />
+            <h4>Vintage Camera</h4>
+            <span>Starting at $50</span>
+          </div>
+
+          <div className="auction-card">
+            <img src="https://images.unsplash.com/photo-1512499617640-c2f999018b72" />
+            <h4>Classic Watch</h4>
+            <span>Starting at $120</span>
+          </div>
         </div>
       </section>
 
@@ -69,13 +52,9 @@ export default function Landing() {
       <section id="contact" className="section">
         <h2>Contact Us</h2>
         <p>Email: support@ecofinds.com</p>
-        <p>Phone: +254 700 000 000</p>
       </section>
 
-      {/* FOOTER */}
-      <footer className="footer">
-        © {new Date().getFullYear()} ecoFinds. All rights reserved.
-      </footer>
+      <Footer />
     </>
   );
 }
