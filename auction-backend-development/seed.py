@@ -9,3 +9,5 @@ with app.app_context():
     AuctionList.query.delete()
     AuctionItem.query.delete()
     User.query.delete()
+
+    print("Creating Users...")
