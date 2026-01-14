@@ -1,5 +1,5 @@
 from app import app
-from models import db, Buyers, Sellers, AuctionItem, Bid, AuctionList
+from models import db, Buyer, Seller, AuctionItem, Bid, AuctionList
 from datetime import date
 
 with app.app_context():
@@ -8,18 +8,18 @@ with app.app_context():
     Bid.query.delete()
     AuctionList.query.delete()
     AuctionItem.query.delete()
-    Buyers.query.delete()
-    Sellers.query,delete()
+    Buyer.query.delete()
+    Seller.query.delete()
 
     print("Creating Buyers...")
     george = Buyer(name="George", email="george.m@gmail.com")
     bob = Buyer(name="Bob", email="bob10101@gmail.com")
-    carol = User(name="Carol", email="carol.okoth@gmail.com")
-    sarah = User(name="Sarah", email="sarah.wavy@gmail.com")
-    esther = User(name="Esther", email="esther.bobo@gmail.com")
-    mark = User(name="Mark", email="markkamau@gmail.com")
-    ethan = User(name="Ethan", email="ethanruto@gmail.com")
-    kevin = User(name="Kevin", email="omondikevo@yahoo.com.au")
-    users = [george, bob, carol, sarah, esther, mark, ethan, kevin]
+    carol = Buyer(name="Carol", email="carol.okoth@gmail.com")
+    sarah = Buyer(name="Sarah", email="sarah.wavy@gmail.com")
+    esther = Buyer(name="Esther", email="esther.bobo@gmail.com")
+    mark = Buyer(name="Mark", email="markkamau@gmail.com")
+    ethan = Buyer(name="Ethan", email="ethanruto@gmail.com")
+    kevin = Buyer(name="Kevin", email="omondikevo@yahoo.com.au")
+    buyers = [george, bob, carol, sarah, esther, mark, ethan, kevin]
 
     print("Creating auction items...")
